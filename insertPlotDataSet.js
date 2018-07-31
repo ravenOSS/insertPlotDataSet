@@ -36,7 +36,7 @@ MongoClient.connect(dburl, function (err, db) {
     var max = 100;
     var min = 1;
     var data = Math.floor((Math.random() * ((max + 1) - min)) + min);
-//    var data = (Math.random() * 100);
+    //    var data = (Math.random() * 100);
 
     console.log(data + ' randData'); // do not set decimal places: converts number to string
     insertData(db, begin.toISOString(), data, function () {
