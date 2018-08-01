@@ -38,7 +38,7 @@ MongoClient.connect(dburl, function (err, db) {
     var data = Math.floor((Math.random() * ((max + 1) - min)) + min);
     //    var data = (Math.random() * 100);
 
-    console.log(data + ' randData'); // do not set decimal places: converts number to string
+    console.log('randomData :', data); // do not set decimal places: converts number to string
     insertData(db, begin.toISOString(), data, function () {
       console.log('Document Inserted!');
     });
@@ -48,8 +48,6 @@ MongoClient.connect(dburl, function (err, db) {
 });
 
 var insertData = function (db, nowISO, data) {
-  console.log('Passed In Data', data);
-  console.log(' ');
   var collection = db.collection(process.env.DB_COLL);
 
   collection.insertOne({'TimeStamp': nowISO, 'Data': data}, function (err, result) {
